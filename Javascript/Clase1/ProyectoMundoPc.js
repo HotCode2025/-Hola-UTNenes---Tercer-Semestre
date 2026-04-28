@@ -31,6 +31,10 @@ class Raton extends DispositivoDeEntrada{
         this._id = ++Raton.contadorRatones;
     }
 
+    usar(){
+        return `RATON LISTO PARA PRENDER`
+    }
+
      toString() {
         // Devuelve la descripción del raton
         return `Raton
@@ -48,7 +52,11 @@ class Teclado extends DispositivoDeEntrada{
         // Identificador y stock del ratón
         this._id = ++Teclado.contadorTeclados;
     }
-
+    
+    usar(){
+        return `TECLADO LISTO PARA PRENDER`
+    }
+    
     toString() {
         // Devuelve la descripción del teclado
         return `Teclado
@@ -73,7 +81,14 @@ class Computadora {
             (this._teclado = teclado)
             
     }
-
+    usar(){
+        return `
+            COMPUTADORA USADA:
+            Raton: ${this._raton.usar()}
+            Teclado: ${this._teclado.usar()}
+            Monitor: ${this._monitor.usar()}
+            `
+    }
     toString() {
         // Devuelve una descripción completa de la computadora
         return `Computadora:
@@ -97,6 +112,10 @@ class Monitor {
         (this._tamanio = tamanio)
     }
 
+    usar(){
+        return `MONITOR LISTO PARA PRENDER`
+    }
+    
     toString() {
         // Devuelve la descripción del monitor
         return `Monitor:
@@ -118,9 +137,18 @@ class Orden {
         agregarComputadora(computadora){
             this._computadora.push(computadora)
         }
+
+        //   -------------------------------- polimorfismo ---------------------------  
+        reconocer(){
+        console.log('-----------POLIMORFISMO --------------')
+        this._computadora.forEach((disp)=>{
+            console.log(disp.usar())
+        })
+        }
+
         mostrarOrden() {
         // Muestra por consola la información de la orden completa
-       if([this._computadora.length == 0]){
+       if([this._computadora.length === 0]){
          return (`
         
         Su orden:
@@ -136,11 +164,8 @@ class Orden {
 
         ------------------------------
 
-        ${this._computadora[0]}
-
-        ------------------------------
-
-        ${this._computadora[1]}
+        ${this._computadora.forEach((computadora,i) =>{
+            console.log(computadora[i].usar())})}
 
         `)
        }
@@ -169,18 +194,13 @@ console.log(compu2.toString())
 // Construcción de una orden
 const orden= new Orden();
 
-
-// Mostrar la orden completa en consola
-console.log(orden.mostrarOrden())
-
 // Argegamos una computadora 
+
 orden.agregarComputadora(compu1)
 orden.agregarComputadora(compu2)
-// POLIMORFISMO
- console.log('  --------------------  POLIMORFISMO  --------------------  ')
-const dispositivos = [ raton1 , teclado1, monitor1]
-dispositivos.forEach(dispositivo =>{
-    console.log(dispositivo.toString())
-})
 
-// La clase ORDEN no deberia estar afeactada, ya que cada dispositivo, tiene sus caracteristicas propias, las cuales son aceptadas por esta, y se adapta a elllas.
+
+
+// La clase ORDEN no deberia estar afeactada, ya que cada dispositivo, tiene sus caracteristicas propias, a las cuales por herencia y polimorfismo,se puede acceder desde la orden, sin importar que dispositivo sea
+
+orden.reconocer()
