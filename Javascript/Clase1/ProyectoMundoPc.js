@@ -2,189 +2,185 @@
 // Este script crea objetos que representan componentes de una computadora
 // y luego genera una orden con varias computadoras.
 
-class Computadora {
-    constructor(id, nombre, monitor, raton, teclado, contador) {
-        // Propiedades de la computadora
-        ((this.id = id),
-            (this.nombre = nombre),
-            (this.monitor = monitor),
-            (this.raton = raton),
-            (this.teclado = teclado),
-            (this.contador = contador));
+class DispositivoDeEntrada {
+    constructor(tipo, marca) {
+        // Un dispositivo de entrada puede ser ratón o teclado
+        this._tipo = tipo, this._marca = marca;
     }
 
-    toString() {
-        // Devuelve una descripción completa de la computadora
-        return `Computadora:
-            Id:${this.id}
-            nombre:${this.nombre}
-            ${this.monitor}
-            Raton:${this.raton}
-            ${this.teclado}
-            Stock:${this.contador}
-            `;
+    get tipoEntrada(){
+        return this._tipo
+    }
+    set tipoEntrada(tipo){
+        this._tipo=tipo;
+    }
+
+     get marca(){
+        return this._marca
+    }
+    set marca(marca){
+        this._marca=marca
     }
 }
 
-class Orden {
-    constructor(id, computadora, contadorOrdenes) {
-        // Una orden contiene un identificador y un arreglo de computadoras
-        ((this.id = id),
-            (this.computadora = computadora),
-            (this.contadorOrdenes = contadorOrdenes));
-    }
-
-    agregarcomputadora(computadora) {
-        // Se agrega una computadora a la orden
-        this.computadora.push(computadora)
-        console.log('Computadora Agregada existosamente')
-        console.log(computadora)
-    }
-
-    mostrarOrden() {
-        // Muestra por consola la información de la orden completa
-        return (`
-        
-        Su orden:
-        id:${this.id}
-
-        ------------------------------
-
-        ${this.computadora[0]}
-
-        ------------------------------
-
-        ${this.computadora[1]}
-
-        `)
-    }
-}
-
-class Monitor {
-    constructor(id, marca, tamanio, contadorMonitores) {
-        // Datos principales del monitor
-        ((this.id = id),
-            (this.marca = marca),
-            (this.tamanio = tamanio),
-            (this.contadorMonitores = contadorMonitores));
-    }
-
-    toString() {
-        // Devuelve la descripción del monitor
-        return `Monitor:
-                Id: ${this.id}
-                Marca:${this.marca}
-                Tamaño: ${this.tamanio}
-                Stock (Contador): ${this.contadorMonitores}
-                `;
-    }
-
-    getIdMonitor() { }
-}
-
-class Raton {
-    constructor(id, contador) {
+class Raton extends DispositivoDeEntrada{
+    static contadorRatones=0;
+    constructor(tipo,marca) {
+        super(tipo,marca);
         // Identificador y stock del ratón
-        ((this.id = id), (this.contador = contador));
+        this._id = ++Raton.contadorRatones;
     }
 
-    toString() {
-        // Devuelve la descripción del ratón
+     toString() {
+        // Devuelve la descripción del raton
         return `Raton
-                Id:${this.id}
-                Stock(Contador):${this.contador}
+                Id:${this._id}
+                Tipo: ${this._tipo},
+                Marca: ${this._marca}
                 `;
     }
 }
 
-class Teclado {
-    constructor(id, contador) {
-        // Identificador y stock del teclado
-        ((this.id = id), (this.contador = contador));
+class Teclado extends DispositivoDeEntrada{
+    static contadorTeclados=0;
+    constructor(tipo,marca) {
+        super(tipo,marca)
+        // Identificador y stock del ratón
+        this._id = ++Teclado.contadorTeclados;
     }
 
     toString() {
         // Devuelve la descripción del teclado
         return `Teclado
-                Id:${this.id}
-                Stock(Contador):${this.contador}
+                Id:${this._id}
+                Tipo: ${this._tipo},
+                Marca: ${this._marca}
                 `;
     }
 }
 
-class DispositivoDeEntrada {
-    constructor(tipo, marca) {
-        // Un dispositivo de entrada puede ser ratón o teclado
-        ((this.tipo = tipo), (this.marca = marca));
+
+
+class Computadora {
+    static contadorCompus = 0;
+    constructor(nombre, monitor, raton, teclado) {
+
+        // Propiedades de la computadora
+            (this._id = ++Computadora.contadorCompus),
+            (this._nombre = nombre),
+            (this._monitor = monitor),
+            (this._raton = raton),
+            (this._teclado = teclado)
+            
     }
 
-    getTipo(tipo) {
-        // Retorna una descripción según el tipo solicitado
-        if (tipo == 'Raton') {
-            return `Raton
-                Tipo:${this.tipo}
-                Marca:${this.marca}
-                `;
-        }
-        if (tipo == 'Teclado') {
-            return `Teclado
-                Tipo:${this.tipo}
-                Marca:${this.marca}
-                `;
-        } else {
-            console.log("Error, Porfavor ingresar tipos validos ( Raton o Teclado )");
-        }
+    toString() {
+        // Devuelve una descripción completa de la computadora
+        return `Computadora:
+            Id:${this._id}
+            nombre:${this._nombre}
+            ${this._monitor}
+            Raton:${this._raton}
+            ${this._teclado}
+            `;
+    }
+}
+
+
+
+class Monitor {
+    static contadorMonitores=0;
+    constructor(marca, tamanio) {
+        // Datos principales del monitor
+        (this._id = ++Monitor.contadorMonitores),
+        (this._marca = marca),
+        (this._tamanio = tamanio)
     }
 
-    setTipo(tipo) {
-        // Crea el dispositivo correspondiente y muestra su información
-        if (tipo == "Raton") {
-            const raton = new Raton(10, 30);
-            console.log(raton.toString())
-            console.log(`Creado raton existosamente`)
+    toString() {
+        // Devuelve la descripción del monitor
+        return `Monitor:
+                Id: ${this._id}
+                Marca:${this._marca}
+                Tamaño: ${this._tamanio}
+                `;
+    }
+}
+
+class Orden {
+    static contadorOrdenes =0;
+    constructor() {
+        // Una orden contiene un identificador y un arreglo de computadoras
+            this._id = ++Orden.contadorOrdenes,
+            this._computadora = []
+    }
+
+        agregarComputadora(computadora){
+            this._computadora.push(computadora)
         }
-        if (tipo == "Teclado") {
-            const teclado = new Teclado(15, 25);
-            console.log(teclado.toString())
-            console.log(`Creado teclado existosamente`)
-        }
-        else {
-            console.log('Datos incorrectos. Porfavor ingresar Raton o Teclado')
-        }
+        mostrarOrden() {
+        // Muestra por consola la información de la orden completa
+       if([this._computadora.length == 0]){
+         return (`
+        
+        Su orden:
+
+        ESTA VACIA
+
+        `)
+       }else{
+         return (`
+        
+        Su orden:
+        id:${this._id}
+
+        ------------------------------
+
+        ${this._computadora[0]}
+
+        ------------------------------
+
+        ${this._computadora[1]}
+
+        `)
+       }
     }
 }
 
 // Creación de monitores y muestra de sus datos
-const monitor = new Monitor(1, "Lg", "24 pulgadas", 10);
-console.log(monitor.toString());
+const monitor1 = new Monitor("Lg","24 pulgadas");
+console.log(monitor1.toString());
 
-const monitor2 = new Monitor(2, "Samsung", "19 pulgadas", 7);
-console.log(monitor.toString());
+const monitor2 = new Monitor("Samsung","19 pulgadas");
+console.log(monitor2.toString());
 
-// Creación de dispositivos de entrada
-const raton = new DispositivoDeEntrada('Raton', 'Lg')
-const teclado = new DispositivoDeEntrada('Teclado', 'RedDragon')
 
-// Ejemplo de uso de setTipo para crear dispositivos
-raton.setTipo('Raton')
-teclado.setTipo('Teclado')
-teclado.setTipo('camiseta')
-
-// Obtener datos de los dispositivos según su tipo
-const datosRaton = raton.getTipo('Raton')
-const datosTeclado = teclado.getTipo('Teclado')
+const raton1 = new Raton('gamer', ' LG')
+const raton2= new Raton('oficina', 'Genius')
+const teclado1= new Teclado ('gamer','razr')
+const teclado2= new Teclado ('oficina', ' genius')
 
 // Creación de computadoras con los componentes definidos
-const compu1 = new Computadora(100, 'Gamer', monitor, datosRaton, datosTeclado, 1)
+const compu1 = new Computadora('Gamer', monitor1, raton1, teclado1,)
 console.log(compu1.toString())
-const compu2 = new Computadora(101, 'Oficina', monitor2, datosRaton, datosTeclado, 1)
+const compu2 = new Computadora('Oficina', monitor2, raton2, teclado2)
 console.log(compu2.toString())
 
-// Construcción de una orden y agregado de las computadoras
-const ordenComputadoras = []
-const orden = new Orden(1000, ordenComputadoras, 1)
-orden.agregarcomputadora(compu1)
-orden.agregarcomputadora(compu2)
+// Construcción de una orden
+const orden= new Orden();
+
 
 // Mostrar la orden completa en consola
 console.log(orden.mostrarOrden())
+
+// Argegamos una computadora 
+orden.agregarComputadora(compu1)
+orden.agregarComputadora(compu2)
+// POLIMORFISMO
+ console.log('  --------------------  POLIMORFISMO  --------------------  ')
+const dispositivos = [ raton1 , teclado1, monitor1]
+dispositivos.forEach(dispositivo =>{
+    console.log(dispositivo.toString())
+})
+
+// La clase ORDEN no deberia estar afeactada, ya que cada dispositivo, tiene sus caracteristicas propias, las cuales son aceptadas por esta, y se adapta a elllas.
