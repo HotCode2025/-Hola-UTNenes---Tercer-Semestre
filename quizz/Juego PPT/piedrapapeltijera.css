@@ -1,0 +1,152 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background-color: #fdf6f0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.container {
+    text-align: center;
+    background: #ffffff;
+    padding: 40px 50px;
+    border-radius: 24px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+    max-width: 480px;
+    width: 100%;
+}
+
+h1 {
+    font-size: 1.8rem;
+    color: #b5838d;
+    margin-bottom: 8px;
+    font-weight: 600;
+}
+
+p.subtitle {
+    color: #c9ada7;
+    font-size: 0.95rem;
+    margin-bottom: 32px;
+}
+
+.opciones {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    margin-bottom: 32px;
+}
+
+.btn {
+    background-color: #ffd6e0;
+    border: none;
+    border-radius: 16px;
+    padding: 18px 22px;
+    font-size: 2rem;
+    cursor: pointer;
+    transition: transform 0.15s, background-color 0.2s;
+}
+
+.btn:hover {
+    background-color: #ffb3c6;
+    transform: scale(1.1);
+}
+
+.btn:active {
+    transform: scale(0.97);
+}
+
+.btnreset {
+    background-color: #ffdd9fc2;
+    color: #472103;
+    font-size: 1.2rem;
+    padding: 12px 24px;
+    font-size: 2rem;
+    cursor: pointer;
+    transition: transform 0.15s, background-color 0.2s;
+}
+
+
+
+.mensaje {
+    margin-top: 16px;
+    font-size: 1.4rem;
+    font-weight: 600;
+    padding: 10px 28px;
+    border-radius: 12px;
+    opacity: 0;
+    transform: scale(0.85);
+    transition: opacity 0.35s ease, transform 0.35s ease;
+}
+
+.mensaje.visible {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.ganaste  { background-color: #b7e4c7; color: #2d6a4f; }
+.perdiste { background-color: #ffc8dd; color: #9d2449; }
+.empate   { background-color: #d6e4ff; color: #3a5a8a; }
+
+.oculto { display: none; }
+
+@keyframes sacudir {
+    0%, 100% { transform: translateY(-18px); }
+    50%      { transform: translateY(8px); }
+}
+
+@keyframes zoomOut {
+    0%   { transform: scale(1.6); opacity: 0; }
+    30%  { opacity: 1; }
+    100% { transform: scale(1); opacity: 1; }
+}
+
+.conteo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    margin: 8px 0 24px;
+}
+
+.punos {
+    display: flex;
+    gap: 48px;
+    font-size: 3rem;
+}
+
+.conteo.animando .puno {
+    animation: sacudir 0.4s ease-in-out 6;
+}
+
+.palabra {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #b5838d;
+    min-height: 2.4rem;
+    transition: opacity 0.2s ease;
+}
+
+.palabra.zoom {
+    animation: zoomOut 0.35s ease-out forwards;
+}
+
+.palabra.fadeout {
+    opacity: 0;
+}
+
+.puno.revelar {
+    animation: zoomOut 0.4s ease-out forwards;
+}
+
+.btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    transform: none;
+}

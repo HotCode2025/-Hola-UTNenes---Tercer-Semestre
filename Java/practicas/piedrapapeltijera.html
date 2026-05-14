@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Piedra, papel y tijera</title>
+    <script>
+        // Tarea: Creamos la función aleatorio que recibe un valor mínimo y uno máximo
+        function aleatorio(min, max) {  
+            //Entrega un número calculado para que la variable pc pueda guardarlo
+            return Math.floor(Math.random() * (max - min + 1) + min) //La clase math llama al método floor(quita los decimales) y al método random (selecciona números entre el 0 y el 1)
+        }
+
+        // 1 será piedra, 2 será papel, 3 será tijera
+        let jugador = 0
+        // Usamos la función para asignar el valor a la PC
+        let pc = aleatorio(1, 3) 
+
+        jugador = prompt("Elige: 1 piedra, 2 papel, 3 tijera")
+
+        //alert("Elige jugador"+jugador)
+        if(jugador == 1){
+            alert("Elegiste piedra")
+        } else if(jugador == 2){
+            alert("Elegiste papel")
+        } else if(jugador == 3){
+            alert("Elegiste tijera")
+        } else {
+            alert("Elegiste perder")
+        }
+
+        //Mostramos la elección de la PC
+        if(pc == 1){
+            alert("PC eligió piedra")
+        } else if(pc == 2){
+            alert("PC eligió papel")
+        } else if(pc == 3){
+            alert("PC eligió tijera")
+        }
+
+        //Combate
+        if(pc == jugador){
+            alert("EMPATE") //Agregamos este resultado debido a que en el juego existe la posibilidad de empate
+        } else if(jugador == 1 && pc == 3){
+            alert("GANASTE")
+        } else if(jugador == 2 && pc == 1){
+            alert("GANASTE")
+        } else if(jugador == 3 && pc == 2){
+            alert("GANASTE")
+        } else {
+            alert("PERDISTE")
+        }
+    </script>
+</head>
+<body>
+    <h1>Piedra, Papel y Tijera</h1>
+</body>
+</html>

@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Piedra, Papel y Tijera</title>
+    <link rel="stylesheet" href="piedrapapeltijera.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Piedra, Papel o Tijera</h1>
+        <p class="subtitle">Elige tu jugada</p>
+            
+        <div class="opciones" id="opciones">
+        <!--  
+            //Atributos de cada botón:
+            //btn aplica el css y efecto hover y active
+            //oneclick llama a la función jugar
+            //title muestra un tooltip al pasar el mouse sobre el botón  -->
+            <button class="btn" onclick="jugar(1)" title="Piedra">✊</button> 
+            <button class="btn" onclick="jugar(2)" title="Papel">✋</button>
+            <button class="btn" onclick="jugar(3)" title="Tijera">✌️</button>
+        </div>
+
+        <div class="conteo oculto" id="conteo">
+            <div class="palabra" id="palabra"></div>
+            <div class="punos">
+                <span class="puno" id="puno-jugador">🤜</span>
+                <span class="puno" id="puno-pc">🤛</span>
+            </div>
+            <div class="mensaje" id="mensaje"></div>
+            <button class="btnreset" onclick="resetear()" title="Resetear">Resetear</button>
+        </div>
+    </div>
+
+    <script>
+        const emojis = { 1: '✊', 2: '✋', 3: '✌️' }
+        const palabras = ['Piedra', 'Papel', 'o', 'Tijera', '1', '2', '3']
+
+        function aleatorio(min, max) {
+            return Math.floor(Math.random() * (max - min + 1) + min)
+        }
+
+        function mostrarResultado(jugador, pc) {
+            const msgEl = document.getElementById('mensaje')
+            msgEl.classList.remove('visible', 'ganaste', 'perdiste', 'empate') <!-- limpieza de clases para evitar conflictos -->
+
+            if (pc === jugador) {
+                msgEl.textContent = 'Empate'
+                msgEl.classList.add('empate')
+            } else if (
+                (jugador === 1 && pc === 3) ||
+                (jugador === 2 && pc === 1) ||
+                (jugador === 3 && pc === 2)
+            ) {
+                msgEl.textContent = 'Ganaste!'
+                msgEl.classList.add('ganaste')
+            } else {
+                msgEl.textContent = 'Perdiste'
+                msgEl.classList.add('perdiste')
+            }
+
+            void msgEl.offsetWidth
+            msgEl.classList.add('visible')
+        }
+
+        function resetear() {
+            const opcionesEl = document.getElementById('opciones')
+            const conteoEl   = document.getElementById('conteo')
+            const palabraEl  = document.getElementById('palabra')
+            const msgEl      = document.getElementById('mensaje')
+            const punoJ      = document.getElementById('puno-jugador')
+            const punoPC     = document.getElementById('puno-pc')
+
+            opcionesEl.querySelectorAll('.btn').forEach(b => b.disabled = false)
+            msgEl.classList.remove('visible', 'ganaste', 'perdiste', 'empate')
+            msgEl.textContent = ''
+            palabraEl.classList.remove('fadeout')
+            punoJ.textContent  = '🤜'
+            punoPC.textContent = '🤛'
+            conteoEl.classList.add('oculto')
+        }
+
+        function jugar(jugador) {
+            const pc = aleatorio(1, 3)
+            const opcionesEl = document.getElementById('opciones') // Elementos que se manipularán durante la animación.
+            const conteoEl   = document.getElementById('conteo') // Elemento del conteo que se animará.
+            const palabraEl  = document.getElementById('palabra') // Elemento donde se mostrarán las palabras del conteo.
+            const msgEl      = document.getElementById('mensaje') // Elemento donde se mostrará el resultado final.
+            const punoJ      = document.getElementById('puno-jugador') // Elemento del puño del jugador.
+            const punoPC     = document.getElementById('puno-pc') // Elemento del puño de la PC.
+
+            // Resetear estado anterior
+            opcionesEl.querySelectorAll('.btn').forEach(b => b.disabled = true)
+            msgEl.classList.remove('visible', 'ganaste', 'perdiste', 'empate')
+            msgEl.textContent = ''
+            palabraEl.classList.remove('fadeout')
+            punoJ.textContent  = '🤜'
+            punoPC.textContent = '🤛'
+            conteoEl.classList.remove('oculto')
+
+            // Reiniciar animación de puños
+            conteoEl.classList.remove('animando')
+            void conteoEl.offsetWidth
+            conteoEl.classList.add('animando')
+
+            // Mostrar palabras una por una con zoom
+            let i = 0
+            palabraEl.textContent = palabras[0]
+            palabraEl.classList.remove('zoom')
+            void palabraEl.offsetWidth
+            palabraEl.classList.add('zoom')
+
+            const intervalo = setInterval(() => {
+                i++
+                if (i < palabras.length) {
+                    palabraEl.textContent = palabras[i]
+                    palabraEl.classList.remove('zoom')
+                    void palabraEl.offsetWidth
+                    palabraEl.classList.add('zoom')
+                } else {
+                    clearInterval(intervalo)
+
+                    // Fade out la última palabra
+                    setTimeout(() => palabraEl.classList.add('fadeout'), 400) //hace un fadeout después de mostrar la última palabra
+
+
+                    // Luego revelar resultado
+                    setTimeout(() => {
+                        palabraEl.textContent = ''
+                        palabraEl.classList.remove('zoom', 'fadeout')
+
+                        punoJ.classList.remove('revelar')
+                        void punoJ.offsetWidth
+                        punoJ.textContent = emojis[jugador]
+                        punoJ.classList.add('revelar')
+
+                        punoPC.classList.remove('revelar')
+                        void punoPC.offsetWidth
+                        punoPC.textContent = emojis[pc]
+                        punoPC.classList.add('revelar')
+
+                        mostrarResultado(jugador, pc)
+                        opcionesEl.querySelectorAll('.btn').forEach(b => b.disabled = false)
+                    }, 620)
+                }
+            }, 400)
+        }
+    </script>
+</body>
+</html>
