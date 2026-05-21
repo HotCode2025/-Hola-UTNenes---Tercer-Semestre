@@ -8,7 +8,7 @@ Como scrum master ( Otar Kebadze ), me toco crear el proyecto, en el cual estara
 
 ```
 
-![proyecto-imagen](/img/proyecto.png)
+![proyecto-imagen](./img/proyecto.png)
 
 
 
@@ -20,7 +20,7 @@ Una vez adentro del proyecto, crearemos las tarjetas personales para cada uno, c
 
 ```
 
-![proyecto-imagen](/img/descripcion-tarjeta.png)
+![proyecto-imagen](./img/descripcion-tarjeta.png)
 
 <h2 align="center">Issues Y Milestones<h2>
 
@@ -30,8 +30,8 @@ Despues de crear todas las tarjetas , se procede a crear las milestones e issues
 
 ```
 
-![proyecto-imagen](/img/issues.png)
-![proyecto-imagen](/img/issueymilestone.png)
+![proyecto-imagen](./img/issues.png)
+![proyecto-imagen](./img/issueymilestone.png)
 
 
 <h2 align="center">Mails De Confirmacion<h2>
@@ -42,9 +42,9 @@ Una vez terminado esto, podemos ver que los miembros asignados tienen sus mail c
 
 ```
 
-![proyecto-imagen](/img/mail-confirmacion.jpeg)
-![proyecto-imagen](/img/mail-confirmacion2.jpeg)
-![proyecto-imagen](/img/mail-confirmacion3.jpeg)
+![proyecto-imagen](./img/mail-confirmacion.jpeg)
+![proyecto-imagen](./img/mail-confirmacion2.jpeg)
+![proyecto-imagen](./img/mail-confirmacion3.jpeg)
 
 <h2 align="center">Codigo Corriendo En Orden<h2>
 
@@ -54,8 +54,8 @@ Los chicos empiezan a desarrollar el codigo hasta que lo ponen a andar
 
 ```
 
-![proyecto-imagen](/img/codigo-andando.jpeg)
-![proyecto-imagen](/img/codigo-terminal-salida.jpeg)
+![proyecto-imagen](./img/codigo-andando.jpeg)
+![proyecto-imagen](./img/codigo-terminal-salida.jpeg)
 
 <h2 align="center">Push a Ramas<h2>
 
@@ -65,10 +65,10 @@ Despues de ir completando sus tareas, van pusheando a sus ramas, para evitar cre
 
 ```
 
-![proyecto-imagen](/img/matias-commit.jpeg)
-![proyecto-imagen](/img/matias-push.jpeg)
-![proyecto-imagen](/img/sere-gitadd.jpeg)
-![proyecto-imagen](/img/sere-push.jpeg)
+![proyecto-imagen](./img/matias-commit.jpeg)
+![proyecto-imagen](./img/matias-push.jpeg)
+![proyecto-imagen](./img/sere-gitadd.jpeg)
+![proyecto-imagen](./img/sere-push.jpeg)
 
 <h2 align="center">Movilizando Tarjetas hasta que quedan todas finalizadas<h2>
 
