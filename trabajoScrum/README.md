@@ -20,7 +20,7 @@ Una vez adentro del proyecto, crearemos las tarjetas personales para cada uno, c
 
 ```
 
-![proyecto-imagen](./img/descripciontarjeta.png)
+![proyecto-imagen](./img/Descripciontarjeta.png)
 
 <h2 align="center">Issues Y Milestones<h2>
 
