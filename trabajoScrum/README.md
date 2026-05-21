@@ -74,7 +74,7 @@ Despues de ir completando sus tareas, van pusheando a sus ramas, para evitar cre
 
 ```
 
-Se van movilizando las tarjetas segun van terminandose, hasta que estan todas en el cuadro final, finalizadas , dejando asi elproyecto en su fase de finalizacion con exito
+Se van movilizando las tarjetas segun van terminandose, hasta que estan todas en el cuadro final con las tarjetas de todos los miembros, dejando asi el proyecto en su fase de finalizacion con exito
 
 ```
 
