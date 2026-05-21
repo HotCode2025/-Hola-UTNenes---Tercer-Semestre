@@ -78,11 +78,11 @@ Se van movilizando las tarjetas segun van terminandose, hasta que estan todas en
 
 ```
 
-![proyecto-imagen](/img/0.png)
-![proyecto-imagen](/img/1.png)
-![proyecto-imagen](/img/2.png)
-![proyecto-imagen](/img/3.png)
-![proyecto-imagen](/img/ultima.png)
+![proyecto-imagen](./img/0.png)
+![proyecto-imagen](./img/1.png)
+![proyecto-imagen](./img/2.png)
+![proyecto-imagen](./img/3.png)
+![proyecto-imagen](./img/ultima.png)
 
 ## Extra
 
