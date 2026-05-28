@@ -6,17 +6,37 @@ function seleccionarPersonajeJugador() {
     let toph = document.getElementById("toph")
 
     if (zuko.checked) {
-        alert("Seleccionaste a Zuko")
+        let opt=document.getElementById("heroe-eleccion")
+        opt.textContent="Zuko"
     } else if (katara.checked) {
-        alert("Seleccionaste a Katara")
+        let opt=document.getElementById("heroe-eleccion")
+        opt.textContent="Katara"
     } else if (aang.checked) {
-        alert("Seleccionaste a Aang")
+        let opt=document.getElementById("heroe-eleccion")
+        opt.textContent="Aang"
     } else if (toph.checked) {
-        alert("Seleccionaste a Toph")
+        let opt=document.getElementById("heroe-eleccion")
+        opt.textContent="Toph"
     } else {
-        alert("Debes seleccionar un personaje")
+    alert ("Debes seleccionar un personaje")
+
     }
+    let personajeEnemigo=Math.floor(Math.random()*(4-1+1)+1);
+     if (personajeEnemigo==1) {
+        let opt=document.getElementById("enemigo-eleccion")
+        opt.textContent="Zuko"
+    } else if (personajeEnemigo==2) {
+        let opt=document.getElementById("enemigo-eleccion")
+        opt.textContent="Katara"
+    } else if (personajeEnemigo==3) {
+        let opt=document.getElementById("enemigo-eleccion")
+        opt.textContent="Aang"
+    } else if (personajeEnemigo==4) {
+        let opt=document.getElementById("enemigo-eleccion")
+        opt.textContent="Toph"
+    } 
 }
 
 let botonPersonajeJugador = document.getElementById("boton-personaje")
 botonPersonajeJugador.addEventListener("click", seleccionarPersonajeJugador)
+
