@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Torres de Hanoi</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <h1>Torres de Hanoi</h1>
+
+  <p>Hacé clic en una torre para seleccionarla, luego clic en otra para mover el disco.</p>
+
+  <div id="juego">
+    <div class="torre-contenedor">
+      <div class="torre" id="torre-0" onclick="seleccionarTorre(0)"></div>
+      <p>Torre A</p>
+    </div>
+    <div class="torre-contenedor">
+      <div class="torre" id="torre-1" onclick="seleccionarTorre(1)"></div>
+      <p>Torre B</p>
+    </div>
+    <div class="torre-contenedor">
+      <div class="torre" id="torre-2" onclick="seleccionarTorre(2)"></div>
+      <p>Torre C</p>
+    </div>
+  </div>
+
+  <p id="mensaje">Seleccioná una torre para empezar.</p>
+  <p>Movimientos: <strong id="contador">0</strong></p>
+
+  <br>
+  <button onclick="reiniciar()">Reiniciar</button>
+
+  <script src="hanoi.js"></script>
+</body>
+</html>
