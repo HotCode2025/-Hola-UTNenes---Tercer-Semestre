@@ -15,13 +15,21 @@ if (form) {
     });
 }
 
-// Para login.html - capturar username de la URL
-const nameSpan = document.getElementById('name');
-if (nameSpan) {
-    const params = new URLSearchParams(window.location.search);
-    const user = params.get('username');
-    nameSpan.textContent = user;
-}
+const signUpBtn = document.getElementById('sign');
+const forgetBtn = document.getElementById('forget');
+
+signUpBtn.addEventListener('click', e => {
+        e.preventDefault();
+        alert('YOU ARE SIGNING UP');
+
+    });
+
+
+forgetBtn.addEventListener('click', e => {
+        e.preventDefault();
+        alert('TRY NOT TO FORGET THIS, ITS IMPORTANT!');
+    });
+
 
 
 
