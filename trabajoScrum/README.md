@@ -1,10 +1,10 @@
 # Trabajo Scrum
 
-## Creacion del proyecto
+<h2 align="center">Creacion De Proyecto<h2>
 
 ```
 
-Como scrum master ( Otar Kebadze ), me toco crear el proyecto, en el cual estaran todas las tarjetas para que los chicos lleven a cabo sus tareas
+Como scrum master ( Otar Kebadze ), me toco crear el proyecto, en el cual estaran todas las tarjetas para que los chicos lleven a cabo sus tareas con sus respectivas milestones e issues
 
 ```
 
@@ -19,6 +19,18 @@ Como scrum master ( Otar Kebadze ), me toco crear el proyecto, en el cual estara
 Una vez adentro del proyecto, crearemos las tarjetas personales para cada uno, con la descripcion de sus tareas, tambien asisgnandolos
 
 ```
+
+| Responsable | Tarea |
+| ------------- |:-------------:|
+|   Otar Kebadze   |   Scrum Master   |
+|   Serena Olmedo   |  Clase 2 Python   |
+|   Emmanuel Poletto   |   Codigo nReinas   |
+|   Matias Tobares   |   Clase 5 Python   |
+|   Fernando Figueroa  |   Clase 1 Python   |
+|   Gabriel Moya   |   Clase 3 Python   |
+|   Joaquin Ybañez   |  Tarea Clase 3 Avatar    |
+|   Florencia Martini   |  Clase 6 Python    |
+
 
 ![proyecto-imagen](./img/Descripciontarjeta.png)
 
@@ -84,9 +96,10 @@ Se van movilizando las tarjetas segun van terminandose, hasta que estan todas en
 ![proyecto-imagen](./img/3.png)
 ![proyecto-imagen](./img/ultima.png)
 
-## Extra
+<h2 align="center">Extra : Dailys<h2>
 
-## Daily Standup
+```
 
+Se realizaron dailys de 15 minutos cada dos dias aproximadamente, donde cada miembro reportaba qué hizo, qué haría hoy y qué impedimentos tenia para asi entre todos buscar una solucion valida.
 
-Se realizaron dailys de 15 minutos cada dos dias aproximadamente, donde cada miembro reportaba qué hizo, qué haría hoy y qué impedimentos tiene
+```
