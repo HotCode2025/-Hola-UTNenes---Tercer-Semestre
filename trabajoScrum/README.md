@@ -96,6 +96,14 @@ Se van movilizando las tarjetas segun van terminandose, hasta que estan todas en
 ![proyecto-imagen](./img/3.png)
 ![proyecto-imagen](./img/ultima.png)
 
+<h2 align="center">Merge a La Main Sin Conflictos<h2>
+
+![proyecto-imagen](./img/merge1.png)
+![proyecto-imagen](./img/merge2.png)
+![proyecto-imagen](./img/merge3.png)
+![proyecto-imagen](./img/merge4.png)
+![proyecto-imagen](./img/merge5.png)
+
 <h2 align="center">Extra : Dailys<h2>
 
 ```
