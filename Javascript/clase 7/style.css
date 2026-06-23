@@ -1,0 +1,29 @@
+body{
+    font-family: Arial;
+    text-align:center;
+    background:#f4f4f4;
+}
+
+#tablero{
+    display:grid;
+    justify-content:center;
+    margin-top:20px;
+}
+
+.casilla{
+    width:60px;
+    height:60px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:35px;
+}
+
+.blanca{
+    background:white;
+}
+
+.negra{
+    background:#666;
+    color:white;
+}

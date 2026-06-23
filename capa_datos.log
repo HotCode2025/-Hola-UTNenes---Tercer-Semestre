@@ -1,0 +1,41 @@
+11:49:58 PM:DEBUG [logger_base.py:15] Mensaje a nivel debug
+11:49:58 PM:INFO [logger_base.py:16] Mensaje a nivel info
+11:49:58 PM:WARNING [logger_base.py:17] Mensaje a nivel warning
+11:49:58 PM:ERROR [logger_base.py:18] Mensaje a nivel error
+11:49:58 PM:CRITICAL [logger_base.py:19] Mensaje a nivel critical
+11:50:26 PM:DEBUG [logger_base.py:15] Mensaje a nivel debug
+11:50:26 PM:INFO [logger_base.py:16] Mensaje a nivel info
+11:50:26 PM:WARNING [logger_base.py:17] Mensaje a nivel warning
+11:50:26 PM:ERROR [logger_base.py:18] Mensaje a nivel error
+11:50:26 PM:CRITICAL [logger_base.py:19] Mensaje a nivel critical
+12:49:04 AM:DEBUG [Persona.py:53] 
+        Id Persona: 1
+        Nombre: Juan
+        Apellido: Perez
+        Email: jperez@mail.com
+        
+12:49:04 AM:DEBUG [Persona.py:56] 
+        Id Persona: 2
+        Nombre: Jose
+        Apellido: Lopez
+        Email: jlopez@mail.com
+        
+01:11:18 AM:ERROR [conexion.py:28] Ocurrio un error: connection to server at "127.0.0.1", port 5432 failed: Connection refused (0x0000274D/10061)
+	Is the server running on that host and accepting TCP/IP connections?
+
+01:12:03 AM:ERROR [conexion.py:28] Ocurrio un error: connection to server at "127.0.0.1", port 5432 failed: Connection refused (0x0000274D/10061)
+	Is the server running on that host and accepting TCP/IP connections?
+
+01:12:32 AM:ERROR [conexion.py:28] Ocurrio un error: connection to server at "127.0.0.1", port 5432 failed: Connection refused (0x0000274D/10061)
+	Is the server running on that host and accepting TCP/IP connections?
+
+01:14:31 AM:ERROR [conexion.py:28] Ocurrio un error: connection to server at "127.0.0.1", port 5432 failed: Connection refused (0x0000274D/10061)
+	Is the server running on that host and accepting TCP/IP connections?
+
+01:15:00 AM:ERROR [conexion.py:28] Ocurrio un error: connection to server at "127.0.0.1", port 5432 failed: Connection refused (0x0000274D/10061)
+	Is the server running on that host and accepting TCP/IP connections?
+
+01:29:33 AM:ERROR [conexion.py:28] Ocurrio un error: connection to server at "127.0.0.1", port 5432 failed: Connection refused (0x0000274D/10061)
+	Is the server running on that host and accepting TCP/IP connections?
+
+01:55:40 AM:ERROR [conexion.py:29] Ocurrio un error: UnicodeDecodeError('utf-8', b'connection to server at "127.0.0.1", port 5432 failed: FATAL:  no existe la base de datos \xabtest_bd\xbb\n', 90, 91, 'invalid start byte')
