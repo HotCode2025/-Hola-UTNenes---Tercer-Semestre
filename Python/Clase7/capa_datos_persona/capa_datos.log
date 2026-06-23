@@ -1,0 +1,37 @@
+01:26:32 AM:ERROR [conexion.py:28] Ocurrio un error: connection to server at "127.0.0.1", port 5432 failed: Connection refused (0x0000274D/10061)
+	Is the server running on that host and accepting TCP/IP connections?
+
+01:32:07 AM:DEBUG [Persona.py:53] 
+        Id Persona: 1
+        Nombre: Juan
+        Apellido: Perez
+        Email: jperez@mail.com
+        
+01:32:07 AM:DEBUG [Persona.py:56] 
+        Id Persona: 2
+        Nombre: Jose
+        Apellido: Lopez
+        Email: jlopez@mail.com
+        
+01:32:20 AM:ERROR [conexion.py:28] Ocurrio un error: connection to server at "127.0.0.1", port 5432 failed: Connection refused (0x0000274D/10061)
+	Is the server running on that host and accepting TCP/IP connections?
+
+01:46:02 AM:ERROR [conexion.py:28] Ocurrio un error: 'utf-8' codec can't decode byte 0xab in position 90: invalid start byte
+01:50:53 AM:ERROR [conexion.py:28] Ocurrio un error: 'utf-8' codec can't decode byte 0xab in position 90: invalid start byte
+01:55:56 AM:ERROR [conexion.py:29] Ocurrio un error: UnicodeDecodeError('utf-8', b'connection to server at "127.0.0.1", port 5432 failed: FATAL:  no existe la base de datos \xabtest_bd\xbb\n', 90, 91, 'invalid start byte')
+01:58:02 AM:DEBUG [conexion.py:25] Conexion exitosaa: <connection object at 0x000002723884B450; dsn: 'user=postgres password=xxx dbname=test_bd host=127.0.0.1 port=5432', closed: 0>
+01:58:02 AM:DEBUG [conexion.py:39] Se abrió correctamente el cursor: <cursor object at 0x0000027238A56F80; closed: 0>
+02:04:28 AM:DEBUG [conexion.py:25] Conexion exitosaa: <connection object at 0x00000226BA0D7450; dsn: 'user=postgres password=xxx dbname=test_bd host=127.0.0.1 port=5432', closed: 0>
+02:04:28 AM:DEBUG [conexion.py:39] Se abrió correctamente el cursor: <cursor object at 0x00000226BA2E6F80; closed: 0>
+02:04:46 AM:DEBUG [Persona.py:53] 
+        Id Persona: 1
+        Nombre: Juan
+        Apellido: Perez
+        Email: jperez@mail.com
+        
+02:04:46 AM:DEBUG [Persona.py:56] 
+        Id Persona: 2
+        Nombre: Jose
+        Apellido: Lopez
+        Email: jlopez@mail.com
+        
