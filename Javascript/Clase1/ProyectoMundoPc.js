@@ -1,4 +1,4 @@
-/ Mini documentación dentro del archivo para facilitar la lectura.
+//Mini documentación dentro del archivo para facilitar la lectura.
 // Este script crea objetos que representan componentes de una computadora
 // y luego genera una orden con varias computadoras.
 
