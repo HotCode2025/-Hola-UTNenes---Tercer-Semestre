@@ -1,0 +1,11 @@
+class Clase2 extends Clase1 {
+    String atributoDefault = "Valor del atributo default";
+
+    Clase2(){
+        System.out.println("Constructor Default");
+    }
+
+    void metodoDefault(){
+        System.out.println("Método Default");
+    }
+}
