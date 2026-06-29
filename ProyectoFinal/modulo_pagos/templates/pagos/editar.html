@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+{% block title %}Editar Pago #{{ pago[0] }}{% endblock %}
+
+{% block content %}
+<h1>Editar Pago #{{ pago[0] }}</h1>
+
+<div class="info-box">
+    <p><strong>Cliente:</strong> {{ pago[1] }}</p>
+    <p><strong>Mascota:</strong> {{ pago[2] }}</p>
+    <p><strong>Servicio:</strong> {{ pago[3] }}</p>
+    <p><strong>Monto:</strong> ${{ "%.2f"|format(pago[4]) }}</p>
+</div>
+
+<form method="POST" class="form">
+
+    <div class="form-group">
+        <label for="metodo_pago">Método de Pago</label>
+        <select name="metodo_pago" id="metodo_pago" required>
+            <option value="efectivo" {{ 'selected' if pago[5] == 'efectivo' }}>Efectivo</option>
+            <option value="tarjeta" {{ 'selected' if pago[5] == 'tarjeta' }}>Tarjeta</option>
+            <option value="transferencia" {{ 'selected' if pago[5] == 'transferencia' }}>Transferencia</option>
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label for="estado">Estado</label>
+        <select name="estado" id="estado" required>
+            <option value="pendiente" {{ 'selected' if pago[6] == 'pendiente' }}>Pendiente</option>
+            <option value="pagado" {{ 'selected' if pago[6] == 'pagado' }}>Pagado</option>
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label for="fecha_pago">Fecha de Pago</label>
+        <input type="date" name="fecha_pago" id="fecha_pago"
+               value="{{ pago[7] if pago[7] else '' }}">
+    </div>
+
+    <div class="form-group">
+        <label for="observaciones">Observaciones</label>
+        <textarea name="observaciones" id="observaciones" rows="3">{{ pago[8] if pago[8] else '' }}</textarea>
+    </div>
+
+    <div class="form-actions">
+        <button type="submit" class="btn btn-warning">Actualizar</button>
+        <a href="{{ url_for('ver_pagos') }}" class="btn btn-secondary">Cancelar</a>
+    </div>
+
+</form>
+{% endblock %}

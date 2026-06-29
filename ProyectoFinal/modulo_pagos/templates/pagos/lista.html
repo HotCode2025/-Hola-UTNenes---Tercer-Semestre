@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+{% block title %}Lista de Pagos{% endblock %}
+
+{% block content %}
+<div class="page-header">
+    <h1>Pagos Registrados</h1>
+    <a href="{{ url_for('nuevo_pago') }}" class="btn btn-success">+ Registrar Pago</a>
+</div>
+
+{% if pagos %}
+<table>
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>Cliente</th>
+            <th>Mascota</th>
+            <th>Servicio</th>
+            <th>Veterinario</th>
+            <th>Monto</th>
+            <th>Método</th>
+            <th>Estado</th>
+            <th>Fecha Pago</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for pago in pagos %}
+        <tr>
+            <td>{{ pago[0] }}</td>
+            <td>{{ pago[1] }}</td>
+            <td>{{ pago[2] }}</td>
+            <td>{{ pago[3] }}</td>
+            <td>{{ pago[4] }}</td>
+            <td>${{ "%.2f"|format(pago[5]) }}</td>
+            <td>
+                <span class="badge badge-metodo">{{ pago[6] }}</span>
+            </td>
+            <td>
+                {% if pago[7] == 'pagado' %}
+                    <span class="badge badge-pagado">Pagado</span>
+                {% else %}
+                    <span class="badge badge-pendiente">Pendiente</span>
+                {% endif %}
+            </td>
+            <td>{{ pago[8] if pago[8] else "—" }}</td>
+            <td>
+                <a href="{{ url_for('editar_pago', id=pago[0]) }}" class="btn btn-sm btn-warning">Editar</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% else %}
+<p class="empty-state">No hay pagos registrados aún.</p>
+{% endif %}
+{% endblock %}
