@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block title %}Inicio — Pagos Veterinaria{% endblock %}
+
+{% block content %}
+<h1>Panel de Pagos</h1>
+
+<div class="cards">
+    <div class="card card-green">
+        <h2>Total Recaudado</h2>
+        <p class="big-number">${{ "%.2f"|format(total_recaudado) }}</p>
+    </div>
+    <div class="card card-blue">
+        <h2>Pagos Registrados</h2>
+        <p class="big-number">{{ total_pagos }}</p>
+    </div>
+    <div class="card card-orange">
+        <h2>Pagos Pendientes</h2>
+        <p class="big-number">{{ pendientes }}</p>
+    </div>
+</div>
+
+<div class="acciones">
+    <a href="{{ url_for('ver_pagos') }}" class="btn btn-primary">Ver todos los pagos</a>
+    <a href="{{ url_for('nuevo_pago') }}" class="btn btn-success">Registrar nuevo pago</a>
+    <a href="{{ url_for('estadisticas') }}" class="btn btn-info">Ver estadísticas</a>
+</div>
+{% endblock %}

@@ -1,0 +1,109 @@
+{% extends "base.html" %}
+{% block title %}Estadísticas y Reportes{% endblock %}
+
+{% block content %}
+<h1>Estadísticas y Reportes</h1>
+
+<!-- RECAUDACIÓN MENSUAL -->
+<section class="reporte">
+    <h2>Recaudación Mensual</h2>
+    {% if recaudacion %}
+    <table>
+        <thead>
+            <tr>
+                <th>Mes</th>
+                <th>Total Recaudado</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for fila in recaudacion %}
+            <tr>
+                <td>{{ fila[0] }}</td>
+                <td>${{ "%.2f"|format(fila[1]) }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% else %}
+    <p class="empty-state">No hay datos de recaudación aún.</p>
+    {% endif %}
+</section>
+
+<!-- SERVICIOS MÁS SOLICITADOS -->
+<section class="reporte">
+    <h2>Servicios Más Solicitados</h2>
+    {% if servicios %}
+    <table>
+        <thead>
+            <tr>
+                <th>Servicio</th>
+                <th>Cantidad de Turnos</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for fila in servicios %}
+            <tr>
+                <td>{{ fila[0] }}</td>
+                <td>{{ fila[1] }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% else %}
+    <p class="empty-state">No hay datos disponibles.</p>
+    {% endif %}
+</section>
+
+<!-- TURNOS POR VETERINARIO -->
+<section class="reporte">
+    <h2>Turnos por Veterinario</h2>
+    {% if veterinarios %}
+    <table>
+        <thead>
+            <tr>
+                <th>Veterinario</th>
+                <th>Cantidad de Turnos</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for fila in veterinarios %}
+            <tr>
+                <td>{{ fila[0] }}</td>
+                <td>{{ fila[1] }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% else %}
+    <p class="empty-state">No hay datos disponibles.</p>
+    {% endif %}
+</section>
+
+<!-- TOTALES POR MÉTODO DE PAGO -->
+<section class="reporte">
+    <h2>Ingresos por Método de Pago</h2>
+    {% if por_metodo %}
+    <table>
+        <thead>
+            <tr>
+                <th>Método</th>
+                <th>Cantidad</th>
+                <th>Total</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for fila in por_metodo %}
+            <tr>
+                <td>{{ fila[0]|capitalize }}</td>
+                <td>{{ fila[1] }}</td>
+                <td>${{ "%.2f"|format(fila[2]) }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% else %}
+    <p class="empty-state">No hay datos disponibles.</p>
+    {% endif %}
+</section>
+
+{% endblock %}
